@@ -1,0 +1,19 @@
+{
+  "name": "dj-poc-module-federation" ,
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "projects/*"
+  ],
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "start": "concurrently \"wsrun --parallel serve\"",
+    "open": "start http://localhost:8082",
+    "clean": "del /s/q node_modules site\\**\\node_modules & yarn run clean:dist",
+    "clean:dist": "del /s/q node_modules sites\\**\\dist"
+  },
+  "dependencies": {
+    "concurrently": "7.6.0",
+    "wsrun": "5.2.4"
+  }
+}
